@@ -11,6 +11,7 @@ package com.learn.leetcode.thread;
 @SuppressWarnings("all")
 public class TestMyThread {
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("开始");
         Thread thread1 = new Thread(new MyThread(0));
         Thread thread2 = new Thread(new MyThread(1));
         Thread thread3 = new Thread(new MyThread(2));
