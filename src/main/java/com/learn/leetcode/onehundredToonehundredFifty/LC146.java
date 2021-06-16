@@ -1,6 +1,7 @@
 package com.learn.leetcode.onehundredToonehundredFifty;
 
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,32 +17,47 @@ import java.util.Map;
 @SuppressWarnings("all")
 public class LC146 {
 
-    private int cacheSize;
-    Map<Integer, LRUNode<Object, Object>> map;
-    DoubleLinkedList<Object, Object> doubleLinkedList;
-
     /**
-     * LRU缓存机制
+     * LRU缓存算法 测试用例
      */
-    public LC146(int capacity) {
-        map = new HashMap<>();
-        doubleLinkedList = new DoubleLinkedList<>();
-        this.cacheSize = capacity;
+    public static void main(String[] args) {
+        LC146 LC146 = new LC146(3);
+        LC146.put(1, 1);
+        LC146.put(2, 2);
+        LC146.put(3, 3);
+        System.out.println(LC146.get(2));
+        System.out.println(LC146.map.keySet());
+        LC146.put(2, 22);
+        System.out.println(LC146.get(2));
+        System.out.println(LC146.map.keySet());
+        LC146.put(4, 4);
+        System.out.println(LC146.get(4));
+        System.out.println(LC146.map.keySet());
     }
 
-    public Object get(int key) {
+    private int cacheSize;
+    Map<Integer, LRUNode<Integer, Integer>> map;
+    DoubleLinkedList<Integer, Integer> doubleLinkedList;
+
+    public LC146(int cacheSize) {
+        this.cacheSize = cacheSize;
+        map = new HashMap<>();
+        doubleLinkedList = new DoubleLinkedList<>();
+    }
+
+    public int get(int key) {
         if (!map.containsKey(key)) {
             return -1;
         }
-        LRUNode<Object, Object> lruNode = map.get(key);
+        LRUNode<Integer, Integer> lruNode = map.get(key);
         doubleLinkedList.removeNode(lruNode);
         doubleLinkedList.addHead(lruNode);
         return lruNode.value;
     }
 
-    public void put(int key, Object value) {
+    public void put(int key, int value) {
         if (map.containsKey(key)) {
-            LRUNode<Object, Object> lruNode = map.get(key);
+            LRUNode<Integer, Integer> lruNode = map.get(key);
             lruNode.value = value;
             map.put(key, lruNode);
             doubleLinkedList.removeNode(lruNode);
@@ -52,7 +68,7 @@ public class LC146 {
                 map.remove(lastNode.key);
                 doubleLinkedList.removeNode(lastNode);
             }
-            LRUNode<Object, Object> newNode = new LRUNode<>(key, value);
+            LRUNode<Integer, Integer> newNode = new LRUNode<>(key, value);
             map.put(key, newNode);
             doubleLinkedList.addHead(newNode);
         }
@@ -110,4 +126,5 @@ public class LC146 {
         }
 
     }
+
 }
