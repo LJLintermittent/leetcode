@@ -17,13 +17,16 @@ public class LRUCache {
 
     public static void main(String[] args) {
         LRUCache lruCache = new LRUCache(3);
-        lruCache.put(1,"a");
-        lruCache.put(2,"b");
-        lruCache.put(3,"c");
+        lruCache.put(1, "a");
+        lruCache.put(2, "b");
+        lruCache.put(3, "c");
+        System.out.println(lruCache.get(2));
         System.out.println(lruCache.map.keySet());
-        lruCache.put(4,"d");
+        lruCache.put(2, "李佳乐");
+        System.out.println(lruCache.get(2));
         System.out.println(lruCache.map.keySet());
-        lruCache.put(2,"2号的修改");
+        lruCache.put(4, "阿里巴巴");
+        System.out.println(lruCache.get(4));
         System.out.println(lruCache.map.keySet());
 
     }
