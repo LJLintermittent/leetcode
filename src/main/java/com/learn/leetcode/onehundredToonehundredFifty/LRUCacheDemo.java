@@ -22,7 +22,7 @@ public class LRUCacheDemo<K, V> extends LinkedHashMap<K, V> {
          * true for access-order,  访问顺序
          * false for insertion-order 插入顺序
          */
-        super(capacity, 0.75F, true);
+        super(capacity, 0.75F, false);
         this.capacity = capacity;
     }
 
@@ -39,6 +39,11 @@ public class LRUCacheDemo<K, V> extends LinkedHashMap<K, V> {
         lruCache.put(1, "a");
         lruCache.put(2, "b");
         lruCache.put(3, "c");
+        System.out.println(lruCache.keySet());
+
+        lruCache.put(2,"cc");
+        lruCache.put(2,"dd");
+        lruCache.put(2,"ee");
         System.out.println(lruCache.keySet());
         lruCache.put(4, "d");
         System.out.println(lruCache.keySet());
