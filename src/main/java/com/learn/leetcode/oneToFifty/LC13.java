@@ -1,4 +1,4 @@
-package com.learn.leetcode;
+package com.learn.leetcode.oneToFifty;
 
 /**
  * Description:
