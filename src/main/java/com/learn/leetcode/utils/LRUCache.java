@@ -28,7 +28,6 @@ public class LRUCache {
         lruCache.put(4, "阿里巴巴");
         System.out.println(lruCache.get(4));
         System.out.println(lruCache.map.keySet());
-
     }
 
     private int cacheSize;
