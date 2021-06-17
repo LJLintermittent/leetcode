@@ -16,7 +16,7 @@ public class LC8 {
         String s1 = "4193 with words";
         String s2 = "words and 987";
         String s3 = "-91283472332";
-        System.out.println(myAtoi(s3));
+        System.out.println(myAtoi(s));
     }
 
     /**
