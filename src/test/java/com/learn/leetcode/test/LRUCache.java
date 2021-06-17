@@ -64,8 +64,5 @@ public class LRUCache {
             map.put(key, newNode);
             doubleLinkedList.addHead(newNode);
         }
-
     }
-
-
 }

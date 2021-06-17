@@ -68,6 +68,4 @@ public class LRUCache {
             doubleLinkedList.addHead(newNode);
         }
     }
-
-
 }
