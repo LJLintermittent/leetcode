@@ -16,20 +16,23 @@ public class LC8 {
         String s1 = "4193 with words";
         String s2 = "words and 987";
         String s3 = "-91283472332";
-        System.out.println(myAtoi(s));
+        System.out.println(myAtoi(s3));
     }
 
     /**
      * 字符串转换为整数
      */
-    public static int myAtoi(String str) {
-        str = str.trim();
-        if (str.length() == 0) return 0;
-        if (!Character.isDigit(str.charAt(0))
-                && str.charAt(0) != '-' && str.charAt(0) != '+')
+    public static int myAtoi(String s) {
+        String str = s.trim();
+        if (str.length() == 0) {
             return 0;
+        }
+        if (!Character.isDigit(str.charAt(0)) && str.charAt(0) != '-' && str.charAt(0) != '+') {
+            return 0;
+        }
         long ans = 0L;
         boolean neg = str.charAt(0) == '-';
+        //如果不为数字返回1 ，因为第0位是正负符号位
         int i = !Character.isDigit(str.charAt(0)) ? 1 : 0;
         while (i < str.length() && Character.isDigit(str.charAt(i))) {
             ans = ans * 10 + (str.charAt(i++) - '0');
@@ -38,7 +41,7 @@ public class LC8 {
                 break;
             }
             if (neg && ans > 1L + Integer.MAX_VALUE) {
-                ans = 1L + Integer.MAX_VALUE;
+                ans = Integer.MAX_VALUE + 1L;
                 break;
             }
         }
