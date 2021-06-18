@@ -14,7 +14,7 @@ import java.util.*;
 public class TestLC46 {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,2,3};
+        int[] nums = new int[]{1, 2, 3};
         List<List<Integer>> lists = permute(nums);
         System.out.println(lists);
     }
@@ -25,13 +25,13 @@ public class TestLC46 {
         if (len == 0) {
             return lists;
         }
-        Deque<Integer> path = new ArrayDeque<>();
         boolean[] used = new boolean[len];
-        dfs(nums, len, 0, path, used, lists);
+        Deque<Integer> path = new ArrayDeque<>();
+        dfs(nums, len, 0, used, path, lists);
         return lists;
     }
 
-    private static void dfs(int[] nums, int len, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> lists) {
+    private static void dfs(int[] nums, int len, int depth, boolean[] used, Deque<Integer> path, List<List<Integer>> lists) {
         if (depth == len) {
             lists.add(new ArrayList<>(path));
             return;
@@ -40,13 +40,12 @@ public class TestLC46 {
             if (used[i]) {
                 continue;
             }
-            path.addLast(nums[i]);
             used[i] = true;
-            dfs(nums, len, depth + 1, path, used, lists);
-            path.removeLast();
+            path.addLast(nums[i]);
+            dfs(nums, len, depth + 1, used, path, lists);
             used[i] = false;
+            path.removeLast();
         }
-
     }
 
 
