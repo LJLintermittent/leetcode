@@ -27,8 +27,6 @@ public class LC206 {
         node5.next = null;
         ListNode listNode = reverseList2(node1);
         System.out.println(listNode);
-
-
     }
 
     /**
