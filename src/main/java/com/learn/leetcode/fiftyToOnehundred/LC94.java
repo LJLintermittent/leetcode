@@ -3,6 +3,8 @@ package com.learn.leetcode.fiftyToOnehundred;
 import com.learn.leetcode.utils.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,6 +15,7 @@ import java.util.List;
  * @author 李佳乐
  * @version 1.0
  */
+@SuppressWarnings("all")
 public class LC94 {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
@@ -25,17 +28,14 @@ public class LC94 {
         node1.left = node3;
         node1.right = node4;
         LC94 lc94 = new LC94();
-        List<Integer> list = lc94.inorderTraversal(root);
+        List<Integer> list = lc94.inorderTraversa1l(root);
         System.out.println(list);
 
     }
 
     /**
-     * *************************二叉树的中序遍历
+     * 二叉树的中序遍历
      * 递归法
-     *
-     * @param root 根节点
-     * @return 返回遍历结果的集合
      */
     List<Integer> list = new ArrayList<>();
 
@@ -54,5 +54,25 @@ public class LC94 {
         if (root.right != null) {
             helper(root.right);
         }
+    }
+
+    /**
+     * 二叉树的中序遍历
+     * 迭代法
+     */
+    public List<Integer> inorderTraversa1l(TreeNode root) {
+        Deque<TreeNode> stack = new LinkedList<>();
+        LinkedList<Integer> ans = new LinkedList<>();
+        while (root != null || !stack.isEmpty()) {
+            if (root != null) {
+                stack.push(root);
+                root = root.left;
+            }else {
+                root = stack.pop();
+                ans.add(root.val);
+                root = root.right;
+            }
+        }
+        return ans;
     }
 }
