@@ -12,7 +12,7 @@ package com.learn.leetcode.onehundredToonehundredFifty;
 public class LC123 {
 
     public static void main(String[] args) {
-        int[] prices = {3,3,5,0,0,3,1,4};
+        int[] prices = {3, 3, 5, 0, 0, 3, 1, 4};
         int i = maxProfit(prices);
         System.out.println(i);
 
@@ -34,11 +34,11 @@ public class LC123 {
         int fstsell = 0;
         int secbuy = Integer.MIN_VALUE;
         int secsell = 0;
-        for (int price : prices) {
-            fstbuy = Math.max(fstbuy, -price);
-            fstsell = Math.max(fstsell, fstbuy + price);
-            secbuy = Math.max(secbuy, fstsell - price);
-            secsell = Math.max(secsell, secbuy + price);
+        for (int p : prices) {
+            fstbuy = Math.max(fstbuy, -p);
+            fstsell = Math.max(fstsell, fstbuy + p);
+            secbuy = Math.max(secbuy, fstsell - p);
+            secsell = Math.max(secsell, secbuy + p);
         }
         return secsell;
     }
