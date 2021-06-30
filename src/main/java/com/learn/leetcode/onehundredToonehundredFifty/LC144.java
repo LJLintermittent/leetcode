@@ -3,6 +3,8 @@ package com.learn.leetcode.onehundredToonehundredFifty;
 import com.google.common.collect.Lists;
 import com.learn.leetcode.utils.TreeNode;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -25,18 +27,19 @@ public class LC144 {
         root.right = node2;
         node1.right = node3;
         node2.left = node4;
-        List<Integer> list = preorderTraversal(root);
+        List<Integer> list = preorderTraversal1(root);
         System.out.println(list);
 
     }
 
     /**
      * 二叉树的前序遍历
+     * 递归
      */
     static List<Integer> list = Lists.newArrayList();
 
     public static List<Integer> preorderTraversal(TreeNode root) {
-        if (root!=null){
+        if (root != null) {
             helper(root);
         }
         return list;
@@ -50,5 +53,28 @@ public class LC144 {
         if (root.right != null) {
             helper(root.right);
         }
+    }
+
+    /**
+     * 二叉树的前序遍历
+     * 迭代
+     * 将后序遍历的addFirst改为add
+     */
+    public static List<Integer> preorderTraversal1(TreeNode root) {
+        Deque<TreeNode> stack = new LinkedList<>();
+        LinkedList<Integer> ans = new LinkedList<>();
+        while (root != null || !stack.isEmpty()) {
+            if (root != null) {
+//                ans.addFirst(root.val);
+                ans.add(root.val);
+                stack.push(root);
+                root = root.left;
+            } else {
+                root = stack.pop();
+                root = root.right;
+            }
+        }
+        return ans;
+
     }
 }
