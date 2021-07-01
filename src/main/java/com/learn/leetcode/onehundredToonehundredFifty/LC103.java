@@ -66,35 +66,3 @@ public class LC103 {
     }
 }
 
-
-/**
- * List<List<Integer>> lists = new ArrayList<>();
- * if (root == null) {
- * return lists;
- * }
- * Queue<TreeNode> queue = new LinkedList<>();
- * queue.offer(root);
- * boolean flag = true;
- * while (!queue.isEmpty()) {
- * int size = queue.size();
- * List<Integer> list = new ArrayList<>();
- * for (int i = 0; i < size; i++) {
- * TreeNode topNode = queue.poll();
- * list.add(topNode.val);
- * if (topNode.left != null) {
- * queue.offer(topNode.left);
- * }
- * if (topNode.right != null) {
- * queue.offer(topNode.right);
- * }
- * }
- * if (flag) {
- * lists.add(list);
- * } else {
- * Collections.reverse(list);
- * lists.add(list);
- * }
- * flag = !flag;
- * }
- * return lists;
- */
