@@ -12,12 +12,14 @@ package com.learn.leetcode.fiftyToOnehundred;
 public class LC70 {
 
     public static void main(String[] args) {
-        int i = climbStairs(3);
+        int i = climbStairs1(4);
         System.out.println(i);
     }
 
     /**
+     * 爬楼梯
      * 动态规划
+     * 滚动数组
      */
     public static int climbStairs(int n) {
         int p = 0, q = 0, r = 1;
@@ -31,9 +33,20 @@ public class LC70 {
 
     /**
      * 爬楼梯
-     * 搞笑
+     * 递归
      */
     public static int climbStairs1(int n) {
+        if (n == 1 || n == 2) {
+            return n;
+        }
+        return climbStairs(n - 1) + climbStairs(n - 2);
+    }
+
+    /**
+     * 爬楼梯
+     * 搞笑
+     */
+    public static int climbStairs2(int n) {
         int result = 0;
 
         switch (n) {
