@@ -17,7 +17,7 @@ public class LC42 {
     public static void main(String[] args) {
         int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         int[] height1 = {4, 2, 0, 3, 2, 5};
-        int trap = trap(height);
+        int trap = trap(height1);
         System.out.println(trap);
 
     }
@@ -37,7 +37,7 @@ public class LC42 {
                 }
                 int left = stack.peek();
                 int currWidth = i - left - 1;
-                int currHeight = Math.min(height[left], height[i]) - height[top];
+                int currHeight = Math.min(height[i], height[left]) - height[top];
                 ans = ans + (currHeight * currWidth);
             }
             stack.push(i);
