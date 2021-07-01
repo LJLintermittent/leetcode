@@ -28,7 +28,7 @@ public class LC92 {
         node4.next = node5;
         node5.next = node6;
         System.out.println(head);
-        ListNode ans = reverseBetween(head, 3, 6);
+        ListNode ans = reverseBetween(head, 1, 7);
         System.out.println(ans);
     }
 

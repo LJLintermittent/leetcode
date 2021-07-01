@@ -13,6 +13,7 @@ import java.time.Period;
  * @author 李佳乐
  * @version 1.0
  */
+@SuppressWarnings("all")
 public class LC206 {
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
@@ -25,12 +26,12 @@ public class LC206 {
         node3.next = node4;
         node4.next = node5;
         node5.next = null;
-        ListNode listNode = reverseList2(node1);
+        ListNode listNode = reverseList1(node1);
         System.out.println(listNode);
     }
 
     /**
-     * **************************迭代法反转链表
+     * 迭代法反转链表
      *
      * @param head 头结点
      * @return 结点
@@ -49,7 +50,7 @@ public class LC206 {
     }
 
     /**
-     * *************************递归法 反转链表
+     * 递归法 反转链表
      *
      * @param head 链表头结点
      * @return 结点
@@ -65,6 +66,35 @@ public class LC206 {
         return reverseListNode;
 
     }
+
+    /**
+     * 反转链表（二）
+     */
+    public static ListNode reverseList1(ListNode head) {
+        ListNode dummyNode = new ListNode(0);
+        dummyNode.next = head;
+        ListNode pre = dummyNode;
+        ListNode cur = pre.next;
+        ListNode next;
+        int n = getLength(head);
+        for (int i = 0; i < n - 1; i++) {
+            next = cur.next;
+            cur.next = next.next;
+            next.next = pre.next;
+            pre.next = next;
+        }
+        return dummyNode.next;
+    }
+
+    public static int getLength(ListNode head) {
+        int length = 0;
+        while (head != null) {
+            length++;
+            head = head.next;
+        }
+        return length;
+    }
+
 
 }
 
