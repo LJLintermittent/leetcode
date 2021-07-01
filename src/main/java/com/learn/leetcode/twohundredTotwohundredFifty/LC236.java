@@ -31,13 +31,15 @@ public class LC236 {
         node2.right = node6;
         node4.left = node7;
         node4.right = node8;
-        TreeNode ans = lowestCommonAncestor(root, node1, node2);
+        TreeNode ans = lowestCommonAncestor(root, node1, node8);
         System.out.println(ans.val);
 
     }
 
     /**
      * 二叉树的最近公共祖先
+     * 回溯遍历整棵二叉树，将结果返回给头结点
+     * 通过后序遍历来完成从底向上的遍历
      */
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || p == root || q == root) {
@@ -49,6 +51,5 @@ public class LC236 {
             return root;
         }
         return left == null ? right : left;
-
     }
 }
