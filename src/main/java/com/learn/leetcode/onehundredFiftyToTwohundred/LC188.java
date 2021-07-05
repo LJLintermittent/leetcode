@@ -17,6 +17,7 @@ public class LC188 {
 
     /**
      * 买卖股票的最佳时机（四）
+     * 动态规划
      */
     public int maxProfit(int k, int[] prices) {
         if (k > 100000) {
