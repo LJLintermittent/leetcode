@@ -38,6 +38,7 @@ public class LC226 {
         if (root == null) {
             return null;
         }
+        //从叶子节点开始翻转
         TreeNode left = invertTree(root.left);
         TreeNode right = invertTree(root.right);
         root.left = right;
