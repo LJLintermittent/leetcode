@@ -2,7 +2,6 @@ package com.learn.leetcode.offer;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Description:
@@ -16,10 +15,14 @@ import java.util.Set;
 public class offer39 {
 
     public static void main(String[] args) {
-        int[] arr = {-1, 1, 1, 1, 2, 1};
-        int i = majorityElement(arr);
-        System.out.println(i);
-
+//        int[] arr = {-1, 1, 1, 1, 2, 1};
+//        int i = majorityElement(arr);
+//        System.out.println(i);
+        Map<Integer, Integer> map = new HashMap<>(16);
+        map.put(-1, 1);
+        map.put(1, 1);
+        map.put(1, 2);
+        System.out.println(map);
     }
 
     /**
@@ -32,7 +35,7 @@ public class offer39 {
         for (int i = 0; i < length; i++) {
             if (map.containsKey(nums[i])) {
                 count = map.get(nums[i]) + 1;
-                map.put(nums[i], count);
+                map.put(nums[i], count);//hashmap的key不允许重复，如果重复添加会覆盖原来的value
             } else {
                 count = 1;
                 map.put(nums[i], count);
