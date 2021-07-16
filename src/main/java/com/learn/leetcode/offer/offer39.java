@@ -1,5 +1,6 @@
 package com.learn.leetcode.offer;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,14 +16,14 @@ import java.util.Map;
 public class offer39 {
 
     public static void main(String[] args) {
-//        int[] arr = {-1, 1, 1, 1, 2, 1};
-//        int i = majorityElement(arr);
-//        System.out.println(i);
-        Map<Integer, Integer> map = new HashMap<>(16);
-        map.put(-1, 1);
-        map.put(1, 1);
-        map.put(1, 2);
-        System.out.println(map);
+        int[] arr = {-1, 1, 1, 1, 2, 1};
+        int i = majorityElement1(arr);
+        System.out.println(i);
+//        Map<Integer, Integer> map = new HashMap<>(16);
+//        map.put(-1, 1);
+//        map.put(1, 1);
+//        map.put(1, 2);
+//        System.out.println(map);
     }
 
     /**
@@ -50,4 +51,12 @@ public class offer39 {
         return 0;
     }
 
+    /**
+     * 数组中出现次数超过一半的数字
+     * 需要的数字出现次数多于一半 那么排序后必定在中间
+     */
+    public static int majorityElement1(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
+    }
 }
