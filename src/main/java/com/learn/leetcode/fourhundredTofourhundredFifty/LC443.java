@@ -15,7 +15,7 @@ public class LC443 {
 
     public static void main(String[] args) {
         char[] chars = new char[]{'a', 'a', 'b', 'b', 'c', 'c', 'c'};
-        int i = compress1(chars);
+        int i = compress2(chars);
         System.out.println(i);
     }
 
@@ -31,6 +31,23 @@ public class LC443 {
             // 当遍历完成，或右指针元素不等于左指针元素时，更新数组
             if (right == chars.length || chars[right] != chars[left]) {
                 chars[size++] = chars[left]; // 更新字符
+                if (right - left > 1) {
+                    for (char c : String.valueOf(right - left).toCharArray()) {
+                        chars[size++] = c;
+                    }
+                }
+                left = right;
+            }
+        }
+        return size;
+    }
+
+    public static int compress2(char[] chars) {
+        int left = 0;
+        int size = 0;
+        for (int right = 0; right <= chars.length; right++) {
+            if (right == chars.length || chars[right] != chars[left]) {
+                chars[size++] = chars[left];
                 if (right - left > 1) {
                     for (char c : String.valueOf(right - left).toCharArray()) {
                         chars[size++] = c;
