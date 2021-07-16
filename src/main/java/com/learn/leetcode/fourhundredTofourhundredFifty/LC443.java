@@ -15,13 +15,35 @@ public class LC443 {
 
     public static void main(String[] args) {
         char[] chars = new char[]{'a', 'a', 'b', 'b', 'c', 'c', 'c'};
-        int i = compress(chars);
+        int i = compress1(chars);
         System.out.println(i);
     }
 
     /**
      * 压缩字符串
-     *
+     * 滑动窗口
+     */
+    public static int compress1(char[] chars) {
+        int left = 0;
+        int size = 0;
+        // 由于最后一个字符也需要判断，所以将右指针终点放到数组之外一格
+        for (int right = 0; right <= chars.length; right++) {
+            // 当遍历完成，或右指针元素不等于左指针元素时，更新数组
+            if (right == chars.length || chars[right] != chars[left]) {
+                chars[size++] = chars[left]; // 更新字符
+                if (right - left > 1) {
+                    for (char c : String.valueOf(right - left).toCharArray()) {
+                        chars[size++] = c;
+                    }
+                }
+                left = right;
+            }
+        }
+        return size;
+    }
+
+    /**
+     * 压缩字符串
      * 测试
      */
     public static int compress(char[] chars) {
