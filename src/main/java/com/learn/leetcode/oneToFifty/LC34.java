@@ -14,16 +14,31 @@ import java.util.*;
 public class LC34 {
     public static void main(String[] args) {
         int[] nums1 = {5, 7, 7, 8, 8, 8, 10};
-        int i = binarysearch(nums1, 8);
-        System.out.println("第一个大于target的值的下标:" + i);
-        int[] ints = searchRange1(nums1, 8);
-        System.out.println(Arrays.toString(ints));
+        int[] nums2 = {};
 
-
+        int[] nums3 = {1, 2, 3, 3, 3, 3, 4, 5, 9};
+//        List<Integer> list = binarySearch(nums3, 0, nums3.length - 1, 3);
+//        System.out.println(list);
+        int[] finalAns = searchRange2(nums3, 3);
+        System.out.println(Arrays.toString(finalAns));
     }
 
     /**
-     *
+     * 最终解法
+     */
+    public static int[] searchRange2(int[] nums, int target) {
+        List<Integer> list = binarySearch(nums, 0, nums.length - 1, target);
+        if (list.size() == 0) {
+            return new int[]{-1, -1};
+        }
+        Integer firstIndex = list.get(0);
+        Integer lastIndex = list.get(list.size() - 1);
+        int[] ans = new int[]{firstIndex, lastIndex};
+        return ans;
+    }
+
+    /**
+     * 在排序数组中查找元素的第一个和最后一个位置
      */
     public static int[] searchRange1(int[] nums, int target) {
         int leftIndex = binarysearch(nums, target - 1);
@@ -43,7 +58,7 @@ public class LC34 {
         int ans = nums.length;
         while (left <= right) {
             int mid = (left + right) / 2;
-            if (nums[mid] > target) {
+            if (target < nums[mid]) {
                 right = mid - 1;
                 ans = mid;
             } else {
@@ -57,6 +72,7 @@ public class LC34 {
         if (left > right) {
             return new ArrayList<>();
         }
+        List<Integer> list = new ArrayList<>(10);
         int midIndex = (left + right) / 2;
         int midVal = nums[midIndex];
         if (target > midVal) {
@@ -65,7 +81,6 @@ public class LC34 {
             return binarySearch(nums, left, midIndex - 1, target);
         } else {
             int temp = midIndex - 1;
-            List<Integer> list = new ArrayList<>(10);
             while (true) {
                 if (temp < 0 || nums[temp] != target) {
                     break;
@@ -82,6 +97,7 @@ public class LC34 {
                 list.add(temp);
                 temp++;
             }
+            Collections.sort(list);
             return list;
         }
     }
