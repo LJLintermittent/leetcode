@@ -21,21 +21,21 @@ public class LC25 {
      * K个一组翻转链表
      */
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode pre = dummy;
-        if (k == 1) {
-            return head;
-        }
-        int length = getLength(head);
-        if (length % k != 0) {
-            for (int i = 0; i < k; i++) {
-
-
-            }
-        }
-
         return null;
+    }
+
+    //链表反转
+    public ListNode reverse(ListNode head) {
+        ListNode cur = head;
+        ListNode prev = null;
+        ListNode next = null;
+        while (cur != null) {
+            next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
     }
 
     private static int getLength(ListNode head) {
