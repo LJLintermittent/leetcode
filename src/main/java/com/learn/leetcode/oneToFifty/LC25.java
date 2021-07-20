@@ -21,11 +21,39 @@ public class LC25 {
      * K个一组翻转链表
      */
     public ListNode reverseKGroup(ListNode head, int k) {
-        return null;
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode end = dummy;
+        while (end.next != null) {
+            for (int i = 0; i < k && end != null; i++) {
+                end = end.next;
+            }
+            //如果end == null，即需要翻转的链表部分节点数小于k，所以不执行翻转，保持原样
+            if (end == null) {
+                break;
+            }
+            //下一次要翻转的链表的头结点
+            ListNode next = end.next;
+            //此时end节点为要翻转的链表的尾结点
+            end.next = null;
+            //start为要翻转的链表的头结点
+            ListNode start = pre.next;
+            //指向翻转后的链表的头结点
+            pre.next = reverse(start);
+            //翻转后头结点变到了最后，通过这句话将前面断开的链表相连
+            start.next = next;
+            pre = start;
+            end = start;
+        }
+        return dummy.next;
     }
 
     //链表反转
-    public ListNode reverse(ListNode head) {
+    private static ListNode reverse(ListNode head) {
         ListNode cur = head;
         ListNode prev = null;
         ListNode next = null;
