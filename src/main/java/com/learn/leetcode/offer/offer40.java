@@ -16,8 +16,8 @@ import java.util.PriorityQueue;
 public class offer40 {
 
     public static void main(String[] args) {
-        int[] arr = {3, 1, 2,4,5,6,7};
-        int[] arr2 = {0,1,2,1};
+        int[] arr = {3, 1, 2, 4, 5, 6, 7};
+        int[] arr2 = {0, 1, 2, 1};
         int[] ans = getLeastNumbers1(arr2, 1);
         System.out.println(Arrays.toString(ans));
 
@@ -36,20 +36,21 @@ public class offer40 {
     }
 
     /**
-     * 大根堆
+     * 小顶堆
      */
     public static int[] getLeastNumbers1(int[] arr, int k) {
         int[] ans = new int[k];
         if (k == 0) {
             return ans;
         }
+        //PriorityQueue通过用数组表示的小顶堆来实现
         PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer num1, Integer num2) {
                 return num2 - num1;
             }
         });
-        for (int i = 0; i < k;  i++) {
+        for (int i = 0; i < k; i++) {
             queue.offer(arr[i]);
         }
         for (int i = k; i < arr.length; i++) {
