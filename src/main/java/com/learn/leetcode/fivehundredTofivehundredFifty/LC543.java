@@ -1,6 +1,5 @@
 package com.learn.leetcode.fivehundredTofivehundredFifty;
 
-import com.learn.leetcode.utils.ListNode;
 import com.learn.leetcode.utils.TreeNode;
 
 /**
@@ -14,23 +13,35 @@ import com.learn.leetcode.utils.TreeNode;
 @SuppressWarnings("all")
 public class LC543 {
 
+    int max = 0;
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode node1 = new TreeNode(2);
-        TreeNode node2 = new TreeNode(3);
-        TreeNode node3 = new TreeNode(4);
         root.left = node1;
-        node1.right = node2;
-        node2.left = node3;
-
-
-        int i = diameterOfBinaryTree(root);
+        LC543 lc543 = new LC543();
+        int i = lc543.diameterOfBinaryTree1(root);
         System.out.println(i);
     }
 
     /**
+     * 二叉树的直径
      * 题解
      */
+    public int diameterOfBinaryTree1(TreeNode root) {
+        dfs(root);
+        return max;
+    }
+
+    public int dfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+        max = Math.max(max, left + right);
+        return Math.max(left, right) + 1;
+    }
 
 
     /**
