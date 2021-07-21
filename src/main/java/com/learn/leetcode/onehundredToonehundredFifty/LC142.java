@@ -17,14 +17,31 @@ import java.util.Set;
 public class LC142 {
 
     public static void main(String[] args) {
-
-
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(1);
+        ListNode node3 = new ListNode(1);
+        ListNode node4 = new ListNode(1);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+//        node4.next = null;
+        node4.next = node2;
+//        ListNode head = new ListNode(3);
+//        ListNode node1 = new ListNode(1);
+//        ListNode node2 = new ListNode(2);
+//        ListNode node3 = new ListNode(4);
+//        head.next = node1;
+//        node1.next = node2;
+//        node2.next = node3;
+//        node3.next = node1;
+        ListNode ans = detectCycle(node1);
+        System.out.println(ans);
     }
 
     /**
      * 环形链表Ⅱ
      */
-    public ListNode detectCycle(ListNode head) {
+    public static ListNode detectCycle(ListNode head) {
         ListNode pos = head;
         Set<ListNode> set = new HashSet<>(16);
         while (pos != null) {

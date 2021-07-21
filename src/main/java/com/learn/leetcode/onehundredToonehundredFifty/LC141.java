@@ -24,9 +24,9 @@ public class LC141 {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        node4.next = null;
-//        node4.next = node2;
-        boolean ans = hasCycle(node1);
+//        node4.next = null;
+        node4.next = node2;
+        boolean ans = hasCycle2(node1);
         System.out.println(ans);
 
     }
