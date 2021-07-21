@@ -26,10 +26,32 @@ public class LC349 {
 
     /**
      * 两个数组的交集
-     *
-     * @return
+     * 正经的实现
      */
     public static int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = new HashSet<>(16);
+        Set<Integer> set2 = new HashSet<>(16);
+        for (int i : nums1) {
+            set1.add(i);
+        }
+        for (int i : nums2) {
+            if (set1.contains(i)) {
+                set2.add(i);
+            }
+        }
+        int[] ans = new int[set2.size()];
+        int j = 0;
+        for (Integer integer : set2) {
+            ans[j++] = integer;
+        }
+        return ans;
+    }
+
+    /**
+     * 两个数组的交集
+     * 不正经的实现
+     */
+    public static int[] intersection1(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>(16);
         int len = Math.max(nums1.length, nums2.length);
         int[] ans = new int[len];
