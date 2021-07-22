@@ -15,14 +15,36 @@ public class LC1047 {
         String s = "abbaca";
         String s1 = "bbadceff";
         String s2 = "a";
-        String ans = removeDuplicates(s2);
-        System.out.println(ans);
+
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++) {
+            String ans = removeDuplicates1(s);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("用时：" + (end - start));
 
     }
 
     /**
-     *
+     * 删除字符串中的所有相邻重复项
+     * 题解
+     * 栈
      */
+    public static String removeDuplicates1(String s) {
+        StringBuilder sb = new StringBuilder();
+        int top = -1;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (top >= 0 && sb.charAt(top) == c) {
+                sb.deleteCharAt(top);
+                top--;
+            } else {
+                sb.append(c);
+                top++;
+            }
+        }
+        return sb.toString();
+    }
 
     /**
      * 删除字符串中的所有相邻重复项
