@@ -12,8 +12,8 @@ package com.learn.leetcode.onehundredToonehundredFifty;
 public class LC135 {
 
     public static void main(String[] args) {
-        int[] nums = {1,0,2};
-        int ans = candy(nums);
+        int[] nums = {1, 0, 2};
+        int ans = test(nums);
         System.out.println(ans);
 
     }
@@ -42,5 +42,29 @@ public class LC135 {
             ret = ret + Math.max(left[i], right);
         }
         return ret;
+    }
+
+    public static int test(int[] ratings) {
+        int len = ratings.length;
+        int[] left = new int[len];
+        for (int i = 0; i < len; i++) {
+            if (i > 0 && ratings[i] > ratings[i - 1]) {
+                left[i] = left[i - 1] + 1;
+            } else {
+                left[i] = 1;
+            }
+        }
+        int right = 0;
+        int res = 0;
+        for (int i = len - 1; i >= 0; i--) {
+            if (right > 0 && ratings[i] > ratings[i + 1]) {
+                right++;
+            } else {
+                right = 1;
+            }
+            res = res + Math.max(left[i],right);
+        }
+
+        return res;
     }
 }
