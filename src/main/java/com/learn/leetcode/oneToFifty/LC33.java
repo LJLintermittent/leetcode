@@ -21,7 +21,7 @@ public class LC33 {
         int[] nums = {4, 5, 6, 7, 0, 1, 2};
         int[] nums1 = {1};
         int[] nums2 = {-5};
-        int i = search(nums2, -5);
+        int i = search(nums, -5);
         System.out.println(i);
     }
 
