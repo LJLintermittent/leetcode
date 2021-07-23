@@ -15,8 +15,8 @@ import java.util.List;
 public class LC704 {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7};
-        int i = search(arr, 5);
+        int[] nums = {1, 2, 3, 5, 7, 10};
+        int i = search(nums, 10);
 //        List<Integer> list = search(arr, 2);
         System.out.println("您要找的数字在该数组的下标为：" + i);
     }
