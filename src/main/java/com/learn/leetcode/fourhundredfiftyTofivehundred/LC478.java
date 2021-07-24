@@ -14,7 +14,7 @@ public class LC478 {
 
 
     public static void main(String[] args) {
-
+        System.out.println(Math.sqrt(9));
     }
 
     double rad, xc, yc;
@@ -29,6 +29,10 @@ public class LC478 {
 
     }
 
+    /**
+     * Math.pow((xg - xc), 2) 求 第一个参数的几次方
+     * Math.sqrt
+     */
     public double[] randPoint() {
         double x0 = xc - rad;
         double y0 = yc - rad;
