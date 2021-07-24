@@ -39,22 +39,29 @@ public class LC140 {
         return ans;
     }
 
-    private void backtrack(int len, String s, List<String> wordDict, List<String> cur) {
+    private void backtrack(int len, String s, List<String> wordDict, List<String> res) {
         if (len >= s.length()) {
-            ans.add(String.join(" ", cur));
+            ans.add(String.join(" ", res));
             return;
         }
         for (String word : wordDict) {
             if (len + word.length() <= s.length() && s.substring(len, len + word.length()).equals(word)) {
-                cur.add(word);
-                backtrack(len + word.length(), s, wordDict, cur);
-                cur.remove(cur.size() - 1);
+                res.add(word);
+                backtrack(len + word.length(), s, wordDict, res);
+                //找到一组解以后直接返回，不需要将剩下的组合找出来，节省时间
+                //然鹅 上一题用此解还是超时...
+                if (!ans.isEmpty()) {
+                    return;
+                }
+                res.remove(res.size() - 1);
             }
         }
     }
 
+
     /**
      * 单词拆分Ⅱ
+     * 题解
      */
     public static List<String> wordBreak1(String s, List<String> wordDict) {
         HashSet<String> set = new HashSet<>(wordDict);
