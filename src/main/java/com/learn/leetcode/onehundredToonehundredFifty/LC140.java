@@ -14,7 +14,7 @@ import java.util.*;
 public class LC140 {
 
     public static void main(String[] args) {
-        String  s = "catsanddog";
+        String s = "catsanddog";
         List<String> list = new ArrayList<>();
         list.add("cat");
         list.add("cats");
@@ -22,14 +22,41 @@ public class LC140 {
         list.add("sand");
         list.add("dog");
 
-        List<String> ans = wordBreak(s, list);
+        LC140 lc140 = new LC140();
+
+        List<String> ans = lc140.wordBreak(s, list);
         System.out.println(ans);
     }
 
     /**
      * 单词拆分Ⅱ
+     * 回溯
      */
-    public static List<String> wordBreak(String s, List<String> wordDict) {
+    List<String> ans = new ArrayList<>();
+
+    public List<String> wordBreak(String s, List<String> wordDict) {
+        backtrack(0, s, wordDict, new ArrayList<>());
+        return ans;
+    }
+
+    private void backtrack(int len, String s, List<String> wordDict, List<String> cur) {
+        if (len >= s.length()) {
+            ans.add(String.join(" ", cur));
+            return;
+        }
+        for (String word : wordDict) {
+            if (len + word.length() <= s.length() && s.substring(len, len + word.length()).equals(word)) {
+                cur.add(word);
+                backtrack(len + word.length(), s, wordDict, cur);
+                cur.remove(cur.size() - 1);
+            }
+        }
+    }
+
+    /**
+     * 单词拆分Ⅱ
+     */
+    public static List<String> wordBreak1(String s, List<String> wordDict) {
         HashSet<String> set = new HashSet<>(wordDict);
         int len = s.length();
         //dp[i]表示长度为i的s前缀子串是否可以拆分成字典中的单词
