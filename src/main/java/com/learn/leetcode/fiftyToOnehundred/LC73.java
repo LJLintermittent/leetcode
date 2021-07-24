@@ -17,7 +17,6 @@ public class LC73 {
         int[][] mat = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
         setZeroes(mat);
         System.out.println(Arrays.toString(mat));
-
     }
 
     /**
