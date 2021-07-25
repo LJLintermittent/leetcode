@@ -1,4 +1,4 @@
-package com.learn.leetcode.week;
+package com.learn.leetcode.week.week1;
 
 import java.util.HashMap;
 import java.util.HashSet;
