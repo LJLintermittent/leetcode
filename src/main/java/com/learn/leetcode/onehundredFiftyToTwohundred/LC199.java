@@ -37,7 +37,7 @@ public class LC199 {
 
     /**
      * 二叉树的右视图
-     * 二叉树的层序遍历 然后只取每行，也就是每个list的最后一个值
+     * 二叉树的层序遍历 然后只取每行的最右边的值，也就是每个list的最后一个值
      */
     public static List<Integer> rightSideView(TreeNode root) {
         ArrayList<Integer> ans = new ArrayList<>();
