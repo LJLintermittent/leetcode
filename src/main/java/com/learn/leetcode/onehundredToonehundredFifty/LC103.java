@@ -33,6 +33,9 @@ public class LC103 {
         }
     }
 
+    /**
+     * 二叉树的锯齿形层序遍历
+     */
     public List<List<Integer>> zigzagLevelOrderDFS(TreeNode root) {
         List<List<Integer>> lists = new ArrayList<>();
         if (root == null) {
