@@ -26,9 +26,13 @@ public class LC21 {
         ListNode list2Node1 = new ListNode(3);
         ListNode list2Node2 = new ListNode(5);
         ListNode list2Node3 = new ListNode(7);
+        ListNode node4 = new ListNode(8);
+
         list2Node1.next = list2Node2;
         list2Node2.next = list2Node3;
-        ListNode ans = mergeTwoLists2(list1Node1, list2Node1);
+        list2Node3.next = node4;
+
+        ListNode ans = mergeTwoLists(list1Node1, list2Node1);
         System.out.println(ans);
 
     }
@@ -55,21 +59,14 @@ public class LC21 {
                 return o1.val - o2.val;
             }
         });
-        ListNode[] listNodes = new ListNode[2];
-        listNodes[0] = l1;
-        listNodes[1] = l2;
-        for (ListNode list : listNodes) {
-            if (list == null) {
-                continue;
-            }
-            priorityQueue.add(list);
-        }
+        priorityQueue.offer(l1);
+        priorityQueue.offer(l2);
         while (!priorityQueue.isEmpty()) {
             ListNode minNode = priorityQueue.poll();
             cur.next = minNode;
             cur = cur.next;
             if (minNode.next != null) {
-                priorityQueue.add(minNode.next);
+                priorityQueue.offer(minNode.next);
             }
         }
         return dummyNode.next;
