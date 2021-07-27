@@ -1,20 +1,20 @@
-package com.learn.leetcode.onehundredToonehundredFifty;
+package com.learn.leetcode.test;
 
 import com.learn.leetcode.utils.ListNode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
  * Description:
- * date: 2021/7/27 12:03
- * Package: com.learn.leetcode.onehundredToonehundredFifty
+ * date: 2021/7/27 14:04
+ * Package: com.learn.leetcode.test
  *
  * @author 李佳乐
  * @email 18066550996@163.com
  */
-@SuppressWarnings("all")
-public class LC143 {
+public class TestLC143 {
 
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
@@ -27,16 +27,11 @@ public class LC143 {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-//        ListNode reverse = reverse(head);
 
         reorderList(head);
         System.out.println(head);
-
     }
 
-    /**
-     * 重排链表
-     */
     public static void reorderList(ListNode head) {
         if (head == null || head.next == null || head.next.next == null) {
             return;
@@ -75,9 +70,6 @@ public class LC143 {
         }
     }
 
-    /**
-     * 反转链表
-     */
     public static ListNode reverse(ListNode head) {
         ListNode cur = head;
         ListNode pre = null;
@@ -91,9 +83,6 @@ public class LC143 {
         return pre;
     }
 
-    /**
-     * 寻找链表中点
-     */
     public static ListNode midNode(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
@@ -102,20 +91,5 @@ public class LC143 {
             fast = fast.next.next;
         }
         return slow;
-    }
-
-    /**
-     * 求链表长度
-     */
-    public static int getLength(ListNode head) {
-        int len = 1;
-        if (head == null) {
-            return 0;
-        }
-        while (head.next != null) {
-            head = head.next;
-            len++;
-        }
-        return len;
     }
 }
