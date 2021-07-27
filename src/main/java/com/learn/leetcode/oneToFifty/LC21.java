@@ -32,7 +32,7 @@ public class LC21 {
         list2Node2.next = list2Node3;
         list2Node3.next = node4;
 
-        ListNode ans = mergeTwoLists(list1Node1, list2Node1);
+        ListNode ans = mergeTwoLists2(list1Node1, list2Node1);
         System.out.println(ans);
 
     }
@@ -76,8 +76,8 @@ public class LC21 {
      *
      */
     public static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
-        ListNode dummyNode = new ListNode(0);
-        ListNode cur = dummyNode;
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
                 cur.next = l1;
@@ -94,6 +94,28 @@ public class LC21 {
         } else if (l2 == null) {
             cur.next = l1;
         }
-        return dummyNode.next;
+        return dummy.next;
     }
 }
+
+/**
+ * ListNode dummyNode = new ListNode(0);
+ * ListNode cur = dummyNode;
+ * while (l1 != null && l2 != null) {
+ * if (l1.val < l2.val) {
+ * cur.next = l1;
+ * cur = cur.next;
+ * l1 = l1.next;
+ * } else {
+ * cur.next = l2;
+ * cur = cur.next;
+ * l2 = l2.next;
+ * }
+ * }
+ * if (l1 == null) {
+ * cur.next = l2;
+ * } else if (l2 == null) {
+ * cur.next = l1;
+ * }
+ * return dummyNode.next;
+ */
