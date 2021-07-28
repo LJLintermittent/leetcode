@@ -24,7 +24,7 @@ public class LC200 {
 
     /**
      * 岛屿数量
-     * 深度优先搜索BFS
+     * 深度优先搜索DFS
      */
     public static int numIslands(char[][] grid) {
         int row = grid.length;
