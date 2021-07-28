@@ -1,9 +1,6 @@
 package com.learn.leetcode.twohundredTotwohundredFifty;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Description:
@@ -18,7 +15,7 @@ public class LC239 {
 
     public static void main(String[] args) {
         int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
-        int[] ans = maxSlidingWindow1(nums, 3);
+        int[] ans = maxSlidingWindow(nums, 3);
         System.out.println(Arrays.toString(ans));
     }
 
@@ -49,22 +46,25 @@ public class LC239 {
 
     /**
      * 滑动窗口的最大值
-     * 超时
+     * 使用优先队列来优化数组排序
+     * 依然超时
      */
     public static int[] maxSlidingWindow(int[] nums, int k) {
-        int[] ans = new int[nums.length];
+        int[] ans = new int[nums.length - k + 1];
         int count = 0;
         for (int i = k - 1; i <= nums.length - 1; i++) {
-            List<Integer> list = new ArrayList<>(k);
+            PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return o2 - o1;
+                }
+            });
             for (int j = 1; j <= k; j++) {
-                list.add(nums[i - k + j]);
+                queue.offer(nums[i - k + j]);
             }
-            Integer[] array = list.toArray(new Integer[k]);
-            Arrays.sort(array);
-            ans[count] = array[array.length - 1];
+            ans[count] = queue.peek();
             count++;
         }
-        int[] finalans = Arrays.copyOfRange(ans, 0, count);
-        return finalans;
+        return ans;
     }
 }
