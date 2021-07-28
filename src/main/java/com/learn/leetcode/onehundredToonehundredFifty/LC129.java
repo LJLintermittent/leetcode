@@ -22,7 +22,7 @@ public class LC129 {
         root.left = node1;
         root.right = node2;
         node1.left = node3;
-        int ans = sumNumbers(root);
+        int ans = sumNumbers1(root);
         System.out.println(ans);
 
     }
@@ -38,6 +38,7 @@ public class LC129 {
         }
         dfs(root, 0);
         return res;
+
     }
 
     private static void dfs(TreeNode root, int value) {
@@ -53,6 +54,27 @@ public class LC129 {
             dfs(root.right, value);
         }
         value = value / 10;
+    }
 
+    /**
+     * 题解
+     * 深度优先搜索
+     */
+    public static int sumNumbers1(TreeNode root) {
+        return dfs1(root, 0);
+    }
+
+    private static int dfs1(TreeNode root, int parentval) {
+        if (root == null) {
+            return 0;
+        }
+        int sum = parentval * 10 + root.val;
+        if (root.left == null && root.right == null) {
+            return sum;
+        } else {
+            int left = dfs1(root.left, sum);
+            int right = dfs1(root.right, sum);
+            return left + right;
+        }
     }
 }
