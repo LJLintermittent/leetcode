@@ -9,7 +9,7 @@ package com.learn.leetcode.offer;
  * @email 18066550996@163.com
  */
 @SuppressWarnings("all")
-public class offer10 {
+public class offer10_2 {
 
     public static void main(String[] args) {
 
