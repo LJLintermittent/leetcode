@@ -18,10 +18,26 @@ public class LC70 {
 
     /**
      * 爬楼梯
+     */
+    public static int climbStairs(int n) {
+        if (n < 2) {
+            return 1;
+        }
+        int[] dp = new int[n + 2];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i <= n + 1; i++) {
+            dp[i] = (dp[i - 1] + dp[i - 2]);
+        }
+        return dp[n];
+    }
+
+    /**
+     * 爬楼梯
      * 动态规划
      * 滚动数组
      */
-    public static int climbStairs(int n) {
+    public static int climbStairs1(int n) {
         int p = 0, q = 0, r = 1;
         for (int i = 0; i < n; i++) {
             p = q;
@@ -35,7 +51,7 @@ public class LC70 {
      * 爬楼梯
      * 递归
      */
-    public static int climbStairs1(int n) {
+    public static int climbStairs2(int n) {
         if (n == 1 || n == 2) {
             return n;
         }
@@ -46,7 +62,7 @@ public class LC70 {
      * 爬楼梯
      * 搞笑
      */
-    public static int climbStairs2(int n) {
+    public static int climbStairs3(int n) {
         int result = 0;
 
         switch (n) {
