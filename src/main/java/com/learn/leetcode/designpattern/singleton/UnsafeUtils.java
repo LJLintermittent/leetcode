@@ -15,7 +15,7 @@ import java.lang.reflect.Field;
 @SuppressWarnings("all")
 public class UnsafeUtils {
 
-    private static Unsafe getUnsafe() {
+    public static Unsafe getUnsafe() {
         try {
             Field field = Unsafe.class.getDeclaredField("theUnsafe");
             field.setAccessible(true);
