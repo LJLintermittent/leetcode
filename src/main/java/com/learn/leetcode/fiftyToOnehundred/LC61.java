@@ -24,7 +24,7 @@ public class LC61 {
         node3.next = node4;
         node4.next = node5;
 
-        ListNode ans = rotateRight(node1, 2);
+        ListNode ans = rotateRight1(node1, 12);
         System.out.println(ans);
     }
 
@@ -54,4 +54,31 @@ public class LC61 {
         newtail.next = null;
         return newhead;
     }
+
+    //review
+    public static ListNode rotateRight1(ListNode head, int k) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        if (k == 0) {
+            return head;
+        }
+        ListNode tail = head;
+        ListNode newtail = head;
+        ListNode newhead;
+        int len = 1;
+        while (tail.next != null) {
+            tail = tail.next;
+            len++;
+        }
+        //将单链表连成一个环形链表
+        tail.next = head;
+        for (int i = 0; i < len - (k % len) - 1; i++) {
+            newtail = newtail.next;
+        }
+        newhead = newtail.next;
+        newtail.next = null;
+        return newhead;
+    }
+
 }
