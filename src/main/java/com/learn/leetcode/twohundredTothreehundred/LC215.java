@@ -1,4 +1,4 @@
-package com.learn.leetcode.twohundredTotwohundredFifty;
+package com.learn.leetcode.twohundredTothreehundred;
 
 import java.util.Arrays;
 

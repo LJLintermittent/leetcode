@@ -11,6 +11,7 @@ import java.util.Arrays;
  * @author 李佳乐
  * @version 1.0
  */
+@SuppressWarnings("all")
 public class LC14 {
     public static void main(String[] args) {
         String[] strs = {"aafhtyh", "aac", "aacs"};
@@ -20,25 +21,22 @@ public class LC14 {
     }
 
     /**
-     * *******************************最长公共前缀
-     *
-     * @param strs 字符数组
-     * @return 最长公共前缀
+     * 最长公共前缀
      */
     public String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) {
             return "";
         }
         Arrays.sort(strs);
-        StringBuilder builder = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         int k = Math.min(strs[0].length(), strs[strs.length - 1].length());
         for (int i = 0; i < k; i++) {
             if (strs[0].charAt(i) == strs[strs.length - 1].charAt(i)) {
-                builder.append(strs[0].charAt(i));
+                stringBuilder.append(strs[0].charAt(i));
             } else {
                 break;
             }
         }
-        return builder.toString();
+        return stringBuilder.toString();
     }
 }
