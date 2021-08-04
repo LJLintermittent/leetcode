@@ -23,6 +23,7 @@ public class LC118 {
 
     /**
      * 杨辉三角
+     *
      */
     public static List<List<Integer>> generate(int numRows) {
         List<List<Integer>> lists = new ArrayList<>();
