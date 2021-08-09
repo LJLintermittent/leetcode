@@ -1,11 +1,11 @@
-package com.learn.leetcode.threehundredTothreehundredfifty;
+package com.learn.leetcode.threehundredTofourhundred;
 
 import com.learn.leetcode.utils.ListNode;
 
 /**
  * Description:
  * date: 2021/8/7 14:33
- * Package: com.learn.leetcode.threehundredTothreehundredfifty
+ * Package: com.learn.leetcode.threehundredTofourhundred
  *
  * @author 李佳乐
  * @email 18066550996@163.com

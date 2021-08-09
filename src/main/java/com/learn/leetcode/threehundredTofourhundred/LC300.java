@@ -1,9 +1,9 @@
-package com.learn.leetcode.threehundredTothreehundredfifty;
+package com.learn.leetcode.threehundredTofourhundred;
 
 /**
  * Description:
  * date: 2021/7/16 20:11
- * Package: com.learn.leetcode.threehundredTothreehundredfifty
+ * Package: com.learn.leetcode.threehundredTofourhundred
  *
  * @author 李佳乐
  * @email 18066550996@163.com
