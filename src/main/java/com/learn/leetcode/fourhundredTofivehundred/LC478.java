@@ -1,10 +1,10 @@
-package com.learn.leetcode.fourhundredfiftyTofivehundred;
+package com.learn.leetcode.fourhundredTofivehundred;
 
 
 /**
  * Description:
  * date: 2021/7/24 11:41
- * Package: com.learn.leetcode.fourhundredfiftyTofivehundred
+ * Package: com.learn.leetcode.fourhundredTofivehundred
  *
  * @author 李佳乐
  * @email 18066550996@163.com

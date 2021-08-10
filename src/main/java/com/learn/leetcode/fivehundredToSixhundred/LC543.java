@@ -1,11 +1,11 @@
-package com.learn.leetcode.fivehundredTofivehundredFifty;
+package com.learn.leetcode.fivehundredToSixhundred;
 
 import com.learn.leetcode.utils.TreeNode;
 
 /**
  * Description:
  * date: 2021/7/21 22:52
- * Package: com.learn.leetcode.fivehundredTofivehundredFifty
+ * Package: com.learn.leetcode.fivehundredToSixhundred
  *
  * @author 李佳乐
  * @email 18066550996@163.com

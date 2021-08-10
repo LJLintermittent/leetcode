@@ -1,11 +1,11 @@
-package com.learn.leetcode.fourhundredfiftyTofivehundred;
+package com.learn.leetcode.fourhundredTofivehundred;
 
 import java.util.Arrays;
 
 /**
  * Description:
  * date: 2021/7/24 19:18
- * Package: com.learn.leetcode.fourhundredfiftyTofivehundred
+ * Package: com.learn.leetcode.fourhundredTofivehundred
  *
  * @author 李佳乐
  * @email 18066550996@163.com
