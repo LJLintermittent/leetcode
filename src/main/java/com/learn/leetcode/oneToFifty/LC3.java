@@ -11,18 +11,15 @@ package com.learn.leetcode.oneToFifty;
  */
 @SuppressWarnings({"all"})
 public class LC3 {
+
     public static void main(String[] args) {
         String a = "abccc";
         int i = lengthOfLongestSubstring(a);
         System.out.println(i);
     }
 
-
     /**
-     * ****************无重复字符的最长子串 (滑动窗口法)
-     *
-     * @param s 字符串
-     * @return 无重复字符的最长子串的长度
+     * 无重复字符的最长子串 (滑动窗口法)
      */
     public static int lengthOfLongestSubstring(String s) {
         if (s.length() < 2) {
