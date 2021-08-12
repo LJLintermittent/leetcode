@@ -19,7 +19,7 @@ public class LC349 {
 
         int[] s1 = {4, 9, 5};
         int[] s2 = {9, 4, 9, 8, 4};
-        int[] ints = intersection(nums1, nums2);
+        int[] ints = intersection(s1, s2);
         System.out.println(Arrays.toString(ints));
 
     }
@@ -49,7 +49,6 @@ public class LC349 {
 
     /**
      * 两个数组的交集
-     * 不正经的实现
      */
     public static int[] intersection1(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>(16);
@@ -81,7 +80,7 @@ public class LC349 {
                 set.add(ans[i]);
             }
         }
-        Object[] objects = set.toArray();
+        Object[] objects = set.toArray(new Integer[0]);
         int[] finalans = new int[set.size()];
         for (int i = 0; i < set.size(); i++) {
             finalans[i] = (int) objects[i];
