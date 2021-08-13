@@ -1,4 +1,4 @@
-package com.learn.leetcode.ninehundredfiftyToonethousand;
+package com.learn.leetcode.ninehundredToonethousand;
 
 import com.learn.leetcode.utils.TreeNode;
 
