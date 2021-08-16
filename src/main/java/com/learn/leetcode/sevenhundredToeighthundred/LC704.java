@@ -1,4 +1,4 @@
-package com.learn.leetcode.sevenhundredtosevenhundredfifty;
+package com.learn.leetcode.sevenhundredToeighthundred;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Description:
  * date: 2021/7/5 14:46
- * Package: com.learn.leetcode.sevenhundredtosevenhundredfifty
+ * Package: com.learn.leetcode.sevenhundredToeighthundred
  *
  * @author 李佳乐
  * @email 18066550996@163.com

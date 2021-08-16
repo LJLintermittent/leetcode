@@ -1,10 +1,10 @@
-package com.learn.leetcode.sevenhundredtosevenhundredfifty;
+package com.learn.leetcode.sevenhundredToeighthundred;
 
 
 /**
  * Description:
  * date: 2021/7/17 23:47
- * Package: com.learn.leetcode.sevenhundredtosevenhundredfifty
+ * Package: com.learn.leetcode.sevenhundredToeighthundred
  *
  * @author 李佳乐
  * @email 18066550996@163.com
