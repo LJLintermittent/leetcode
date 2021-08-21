@@ -31,7 +31,7 @@ public class LC74 {
                     }
                     col--;
                 }
-                col = matrix[0].length;
+                return false;
             }
         }
         return false;
