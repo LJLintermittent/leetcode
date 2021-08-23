@@ -19,6 +19,7 @@ public class LC705 {
 
     }
 
+    // 质数取模，加大散列
     private static final int BASE = 769;
 
     private LinkedList[] data;
