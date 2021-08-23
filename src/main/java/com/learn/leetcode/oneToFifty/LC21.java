@@ -39,7 +39,6 @@ public class LC21 {
 
     /**
      * 合并两个有序链表
-     * <p>
      * 优先队列
      */
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -73,7 +72,7 @@ public class LC21 {
     }
 
     /**
-     *
+     * 普通方法
      */
     public static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
