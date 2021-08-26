@@ -50,20 +50,23 @@ public class LC239 {
      * 依然超时
      */
     public static int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums.length == 0) {
+            return new int[0];
+        }
         int[] ans = new int[nums.length - k + 1];
         int count = 0;
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
         for (int i = k - 1; i <= nums.length - 1; i++) {
-            PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
-                @Override
-                public int compare(Integer o1, Integer o2) {
-                    return o2 - o1;
-                }
-            });
             for (int j = 1; j <= k; j++) {
                 queue.offer(nums[i - k + j]);
             }
-            ans[count] = queue.peek();
-            count++;
+            ans[count++] = queue.peek();
+            queue.clear();
         }
         return ans;
     }
