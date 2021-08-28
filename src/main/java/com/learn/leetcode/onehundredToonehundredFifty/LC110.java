@@ -40,7 +40,7 @@ public class LC110 {
                 && isBalanced(root.left) && isBalanced(root.right);
     }
 
-    //计算当前节点的高度
+    //计算以当前节点为根节点的树的深度
     private static int helper(TreeNode root) {
         if (root == null) {
             return 0;
