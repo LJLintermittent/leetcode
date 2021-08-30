@@ -53,6 +53,5 @@ public class LC40 {
                 break;
             }
         }
-
     }
 }
