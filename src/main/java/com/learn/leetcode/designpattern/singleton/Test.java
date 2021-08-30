@@ -20,7 +20,8 @@ public class Test {
         for (int i = 0; i < threadnum; i++) {
             new Thread(() -> {
                 for (int j = 0; j < 100; j++) {
-                    System.out.println(Thread.currentThread().getName() + "获取到的单例对象：" + SingleTonWithUnsafe.getInstance());
+                    System.out.println(Thread.currentThread().getName()
+                            + "获取到的单例对象：" + SingleTon04.getInstance());
                 }
                 countDownLatch.countDown();
             }).start();
@@ -30,4 +31,6 @@ public class Test {
         System.out.println("耗时：" + (end - start));
 
     }
+
+
 }

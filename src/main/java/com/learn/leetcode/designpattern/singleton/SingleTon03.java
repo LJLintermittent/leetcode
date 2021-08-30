@@ -2,30 +2,32 @@ package com.learn.leetcode.designpattern.singleton;
 
 /**
  * Description:
- * date: 2021/8/1 13:54
+ * date: 2021/8/30 11:12
  * Package: com.learn.leetcode.designpattern.singleton
  *
  * @author 李佳乐
  * @email 18066550996@163.com
  */
 @SuppressWarnings("all")
-public class SingleTon {
+public class SingleTon03 {
 
-    private SingleTon() {
+    //双端检测
+    //1926
+    private static volatile SingleTon03 INSTANCE;
+
+    private SingleTon03() {
 
     }
 
-    public static volatile SingleTon INSTANCE;
-
-    public static SingleTon getInstance() {
+    public static SingleTon03 getInstance() {
         if (INSTANCE == null) {
-            synchronized (SingleTon.class) {
+            synchronized (SingleTon03.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new SingleTon();
+                    INSTANCE = new SingleTon03();
+                    return INSTANCE;
                 }
             }
         }
         return INSTANCE;
     }
-
 }
