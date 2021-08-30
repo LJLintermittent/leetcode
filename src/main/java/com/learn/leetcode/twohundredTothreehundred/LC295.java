@@ -19,6 +19,10 @@ public class LC295 {
         lc295.addNum(2);
         lc295.addNum(3);
         lc295.addNum(4);
+        lc295.addNum(1);
+        lc295.addNum(2);
+        lc295.addNum(8);
+        lc295.addNum(5);
         double ans = lc295.findMedian();
         System.out.println(ans);
 
@@ -35,12 +39,13 @@ public class LC295 {
      * 将元素放入数组中，会发现数组编号与父节点与子节点之间是有关联的
      */
     public LC295() {
+        //堆顶元素最小，小顶堆，记录大于中位数的数，所以在计算中位数的时候直接取小根堆的堆顶元素，就是算中位数要用的那个数
         maxQueue = new PriorityQueue<>((a, b) -> (a - b));
+        //堆顶元素最大，大顶堆，记录小于中位数的数，大顶堆里面放小于中位数的数，所以计算的时候直接取堆顶元素
         minQueue = new PriorityQueue<>((a, b) -> (b - a));
     }
 
     public void addNum(int num) {
-        //加进来的数比小顶堆的堆顶元素，也就是最小元素还小，那么加入小顶堆
         if (minQueue.isEmpty() || num <= minQueue.peek()) {
             minQueue.offer(num);
             if (maxQueue.size() + 1 < minQueue.size()) {
