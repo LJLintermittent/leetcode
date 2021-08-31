@@ -41,7 +41,6 @@ public class LC15 {
             return lists;
         }
         Arrays.sort(nums);
-        //N
         for (int i = 0; i < length; i++) {
             if (nums[i] > 0) {
                 break;
@@ -51,7 +50,6 @@ public class LC15 {
             }
             int L = i + 1;
             int R = length - 1;
-            //N
             while (L < R) {
                 int sum = nums[i] + nums[L] + nums[R];
                 if (sum == 0) {
