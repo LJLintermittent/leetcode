@@ -21,7 +21,6 @@ public class CouponCommodityService implements ICommodity{
 
     private Logger logger = LoggerFactory.getLogger(CouponCommodityService.class);
 
-
     private CouponService couponService = new CouponService();
 
     @Override
