@@ -1,44 +1,47 @@
-package com.learn.leetcode.onehundredToonehundredFifty;
+package com.learn.leetcode.test2;
 
+
+import com.learn.leetcode.onehundredToonehundredFifty.LC146;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Description:
- * date: 2021/6/16 21:05
- * Package: com.learn.leetcode.onehundredToonehundredFifty
+ * date: 2021/9/2 12:03
+ * Package: com.learn.leetcode.test2
  *
  * @author 李佳乐
- * @version 1.0
+ * @email 18066550996@163.com
  */
-
 @SuppressWarnings("all")
-public class LC146 {
+public class LRU {
 
     public static void main(String[] args) {
-        LC146 LC146 = new LC146(3);
-        LC146.put(1, 1);
-        LC146.put(2, 2);
-        LC146.put(3, 3);
-        System.out.println(LC146.get(2));
-        System.out.println(LC146.map.keySet());
-        LC146.put(2, 22);
-        System.out.println(LC146.get(2));
-        System.out.println(LC146.map.keySet());
-        LC146.put(4, 4);
-        System.out.println(LC146.get(4));
-        System.out.println(LC146.map.keySet());
+        LRU lru = new LRU(3);
+        lru.put(1, 1);
+        lru.put(2, 2);
+        lru.put(3, 3);
+        System.out.println(lru.get(2));
+        System.out.println(lru.map.keySet());
+        lru.put(2, 22);
+        System.out.println(lru.get(2));
+        System.out.println(lru.map.keySet());
+        lru.put(4, 4);
+        System.out.println(lru.get(4));
+        System.out.println(lru.map.keySet());
     }
 
-    private int cacheSize;
+    //LinkedHashMap
+
     Map<Integer, LRUNode<Integer, Integer>> map;
     DoubleLinkedList<Integer, Integer> doubleLinkedList;
+    private int cachesize;
 
-    public LC146(int cacheSize) {
-        this.cacheSize = cacheSize;
+    public LRU(int cachesize) {
         map = new HashMap<>();
         doubleLinkedList = new DoubleLinkedList<>();
+        this.cachesize = cachesize;
     }
 
     public int get(int key) {
@@ -59,15 +62,16 @@ public class LC146 {
             doubleLinkedList.removeNode(lruNode);
             doubleLinkedList.addHead(lruNode);
         } else {
-            if (map.size() == cacheSize) {
-                LRUNode lastNode = doubleLinkedList.getLastNode();
-                map.remove(lastNode.key);
-                doubleLinkedList.removeNode(lastNode);
+            if (map.size() == cachesize) {
+                LRUNode last = doubleLinkedList.getLast();
+                map.remove(last.key);
+                doubleLinkedList.removeNode(last);
             }
             LRUNode<Integer, Integer> newNode = new LRUNode<>(key, value);
             map.put(key, newNode);
             doubleLinkedList.addHead(newNode);
         }
+
     }
 
     class LRUNode<K, V> {
@@ -83,15 +87,13 @@ public class LC146 {
         public LRUNode(K key, V value) {
             this.key = key;
             this.value = value;
-            this.prev = this.next = null;
         }
-
     }
 
     class DoubleLinkedList<K, V> {
 
-        LRUNode<K, V> head;
         LRUNode<K, V> tail;
+        LRUNode<K, V> head;
 
         public DoubleLinkedList() {
             head = new LRUNode<>();
@@ -100,7 +102,6 @@ public class LC146 {
             tail.prev = head;
         }
 
-        //添加节点到队列头部
         public void addHead(LRUNode<K, V> node) {
             node.next = head.next;
             node.prev = head;
@@ -108,19 +109,16 @@ public class LC146 {
             head.next = node;
         }
 
-        //删除节点
         public void removeNode(LRUNode<K, V> node) {
             node.next.prev = node.prev;
             node.prev.next = node.next;
-            node.next = null;
             node.prev = null;
+            node.next = null;
         }
 
-        //获取队列最后一个节点，也就是最近最少使用的节点，为了删除做准备
-        public LRUNode getLastNode() {
+        public LRUNode getLast() {
             return tail.prev;
         }
 
     }
-
 }
