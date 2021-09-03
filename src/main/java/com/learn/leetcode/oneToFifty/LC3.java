@@ -26,7 +26,7 @@ public class LC3 {
             return s.length();
         }
         int left = 0;
-        int right = 0;
+        int max = 0;
         char[] c = s.toCharArray();
         for (int i = 1; i < c.length; i++) {
             for (int j = left; j < i; j++) {
@@ -34,9 +34,9 @@ public class LC3 {
                     left = j + 1;
                 }
             }
-            right = Math.max(right, (i + 1 - left));
+            max = Math.max(max, (i + 1 - left));
         }
-        return right;
+        return max;
     }
 
 }
