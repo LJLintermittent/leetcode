@@ -18,7 +18,7 @@ public class SingleTon03 {
     private static volatile SingleTon03 INSTANCE;
 
     private SingleTon03() {
-        throw new RuntimeException("别用反射");
+
     }
 
     public static SingleTon03 getInstance() {

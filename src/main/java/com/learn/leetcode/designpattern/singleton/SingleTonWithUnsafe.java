@@ -23,7 +23,7 @@ public class SingleTonWithUnsafe {
     private static SingleTonWithUnsafe INSTANCE;
 
     private SingleTonWithUnsafe() {
-        throw new RuntimeException("别用反射");
+
     }
 
     public static SingleTonWithUnsafe getInstance() {

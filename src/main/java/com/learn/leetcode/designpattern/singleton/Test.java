@@ -28,7 +28,7 @@ public class Test {
             new Thread(() -> {
                 for (int j = 0; j < 100; j++) {
                     System.out.println(Thread.currentThread().getName()
-                            + "获取到的单例对象：" + SingleTon04.getInstance());
+                            + "获取到的单例对象：" + SingleTon02.getInstance());
                 }
                 countDownLatch.countDown();
             }).start();

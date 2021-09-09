@@ -20,7 +20,7 @@ public class SingleTon04 {
     private static AtomicReference<SingleTon04> INSTANCE = new AtomicReference<>();
 
     private SingleTon04() {
-        throw new RuntimeException("别用反射");
+
     }
 
     public static SingleTon04 getInstance() {

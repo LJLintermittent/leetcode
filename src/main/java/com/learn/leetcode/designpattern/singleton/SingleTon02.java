@@ -36,8 +36,8 @@ public class SingleTon02 {
         Constructor<?> constructor = clazz.getDeclaredConstructor(null);
         constructor.setAccessible(true);
         Object a = constructor.newInstance();
-//        Object b = constructor.newInstance();
-//        System.out.println(a == b);
+        Object b = constructor.newInstance();
+        System.out.println(a == b);
     }
 
 }

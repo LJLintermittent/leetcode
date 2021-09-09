@@ -19,9 +19,6 @@ public class SingleTon01 {
     private static SingleTon01 INSTANCE = new SingleTon01();
 
     private SingleTon01() {
-        if (SingleTon01.INSTANCE != null) {
-            throw new RuntimeException("别用反射");
-        }
 
     }
 
