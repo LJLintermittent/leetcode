@@ -1,5 +1,7 @@
 package com.learn.leetcode.designpattern.singleton;
 
+import java.lang.reflect.Constructor;
+
 /**
  * Description:
  * date: 2021/8/30 10:48
@@ -17,11 +19,30 @@ public class SingleTon01 {
     private static SingleTon01 INSTANCE = new SingleTon01();
 
     private SingleTon01() {
+        if (SingleTon01.INSTANCE != null) {
+            throw new RuntimeException("别用反射");
+        }
 
     }
 
     public static SingleTon01 getInstance() {
         return INSTANCE;
+    }
+
+    public static void main(String[] args) {
+        try {
+            Class<?> clazz = SingleTon01.class;
+            Constructor<?> constructor = clazz.getDeclaredConstructor(null);
+            constructor.setAccessible(true);
+            Object a = constructor.newInstance();
+            Object b = constructor.newInstance();
+            System.out.println(a);
+
+            System.out.println(b);
+            System.out.println(a == b);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
