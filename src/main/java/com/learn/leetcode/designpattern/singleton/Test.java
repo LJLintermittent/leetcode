@@ -19,6 +19,18 @@ public class Test {
         如果使用饿汉式，那么直接在成员变量上进行创建，这样创建的单例对象在类加载的时候就实例化，这样一来，系统初始化
         的时候会占用系统的内存空间，不管对象用不用，都占着空间，但是饿汉式是线程安全的
         将饿汉式改进懒加载的时候，需要注意线程安全的问题，由于是懒加载，需要用户线程来获取，那么需要做同步处理
+
+        JDK源码中使用单例的场景 Runtime.getRuntime 返回currentRuntime 是一个标准饿汉式，线程安全
+        public class Runtime {
+
+        private static Runtime currentRuntime = new Runtime();
+
+        public static Runtime getRuntime() {
+            return currentRuntime;
+        }
+
+        private Runtime() {}
+
      */
     public static void main(String[] args) throws InterruptedException {
         long start = System.currentTimeMillis();
@@ -28,7 +40,7 @@ public class Test {
             new Thread(() -> {
                 for (int j = 0; j < 100; j++) {
                     System.out.println(Thread.currentThread().getName()
-                            + "获取到的单例对象：" + SingleTon02.getInstance());
+                            + "获取到的单例对象：" + SingleTon01.getInstance());
                 }
                 countDownLatch.countDown();
             }).start();
