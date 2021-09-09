@@ -11,6 +11,7 @@ package com.learn.leetcode.designpattern.factorymethod.support;
 public class StoreFactory {
 
     /*
+      TODO 简单工厂
       简单工厂，抽象工厂，工厂方法都隶属于创建型设计模式
       简单工厂又叫静态工厂方法，有一个具体的工厂类，可以生产不同的产品,是属于创建型设计模式，但是不属于GOF23种设计模式之一
       简单工厂这个类提供一个可以被外部直接调用的方法，负责实现创建所有实例的内部逻辑
