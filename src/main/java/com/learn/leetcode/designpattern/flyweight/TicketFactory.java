@@ -21,7 +21,10 @@ public class TicketFactory {
      * 状态缓存起来，减少了应用中的数量，将多个对同一对象的访问集中起来，不必为每一个访问者创建一个对象，属于结构性设计模式
      * 享元模式把一个对象的状态分为内部状态和外部状态，内部状态是不变的，外部状态是变化的，然后通过共享不变的部分，达到减少
      * 对象数量而节约内存的目的
-     *
+     * 关注线程安全，使用享元模式
+     * jdk源码使用享元模式:
+     * String类
+     * 包装数据类型 的缓存
      */
 
     private static Map<String, ITicket> ticketPool = new ConcurrentHashMap<>(16);
