@@ -1,5 +1,6 @@
 package com.learn.leetcode.week.test;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -17,8 +18,8 @@ public class Test1 {
      * 阿里巴巴9.15笔试题
      */
     public static void main(String[] args) {
-//        int bit = getBit(2L);
-//        System.out.println(bit);
+        int bit = getBit(2L);
+        System.out.println(bit);
         Scanner scanner = new Scanner(System.in);
         int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {

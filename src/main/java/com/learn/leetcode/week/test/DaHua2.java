@@ -28,7 +28,7 @@ public class DaHua2 {
                 System.out.print(" ");
             }
             for (int k = 1; k < (i + 1) * 2; k++) {
-                System.out.print('*');
+                System.out.print("*");
             }
             System.out.println();
         }
@@ -37,11 +37,9 @@ public class DaHua2 {
                 System.out.print(" ");
             }
             for (int k = 1; k <= y - 2 * i; k++) {
-                System.out.print('*');
-
+                System.out.print("*");
             }
             System.out.println();
         }
     }
-
 }
