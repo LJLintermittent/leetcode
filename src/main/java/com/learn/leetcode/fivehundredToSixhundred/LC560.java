@@ -17,7 +17,7 @@ public class LC560 {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 1, 2, 4};
         int[] nums1 = {1, 1, 1};
-        int ans = subarraySum(nums1, 2);
+        int ans = subarraySum(nums, 2);
         System.out.println(ans);
 
     }

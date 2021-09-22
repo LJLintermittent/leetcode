@@ -13,6 +13,9 @@ import java.util.Scanner;
 @SuppressWarnings("all")
 public class Test1 {
 
+    /**
+     * 阿里巴巴9.15笔试题
+     */
     public static void main(String[] args) {
 //        int bit = getBit(2L);
 //        System.out.println(bit);
