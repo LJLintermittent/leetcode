@@ -40,6 +40,7 @@ public class Lazada1 {
                 index = 1;
             }
         }
+        //最后一组要单独拿出来进行拼接，因为循环不会再次进入了
         if (index == 1) {
             sb.append(mb);
         } else {
